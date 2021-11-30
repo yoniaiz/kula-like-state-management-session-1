@@ -7,6 +7,10 @@ const initialState = {
   species: "none",
   status: "none",
 };
+
+// create a functionality to update the state
+// based on the action and return the updated state
+// https://reactjs.org/docs/hooks-reference.html#usereducer
 const reducer = (state, action) => {
   return state;
 };
