@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
 import Spinner from "../../components/Spinner";
-import { useFetchCharacterById } from "../../hooks";
+import { useCharacterContext } from "../../context/CharactersContext";
+import { useFetchCharacterByIdContext } from "../../hooks";
 import styles from "./character.module.css";
 
 const Character = () => {
   const { id } = useParams();
-  const { character, status } = useFetchCharacterById(id);
+  useFetchCharacterByIdContext(id);
 
   if (status === "loading" || status === "idle" || !character) {
     return <Spinner />;

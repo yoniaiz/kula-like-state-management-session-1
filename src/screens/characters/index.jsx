@@ -1,10 +1,12 @@
 import { CharacterCard, CharactersFiltersQueryParams } from "../../components";
 import Spinner from "../../components/Spinner";
-import { useFiltersByParams, useFetchCharacters } from "../../hooks";
+import { useCharacterContext } from "../../context/CharactersContext";
+import { useFiltersByParams, useFetchCharactersContext } from "../../hooks";
 import styles from "./characters.module.css";
 
 const Characters = () => {
-  const { characters, status } = useFetchCharacters();
+  useFetchCharactersContext();
+  // get status and characters from CharactersContext
   const { filteredCharacters } = useFiltersByParams(characters);
 
   if (status === "idle" || status === "loading") {
