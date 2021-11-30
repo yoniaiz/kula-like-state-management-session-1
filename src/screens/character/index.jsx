@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import Spinner from "../../components/Spinner";
 import { useFetchCharacterById } from "../../hooks";
 import styles from "./character.module.css";
 
@@ -7,7 +8,7 @@ const Character = () => {
   const { character, status } = useFetchCharacterById(id);
 
   if (status === "loading" || status === "idle" || !character) {
-    return <h2>loading</h2>;
+    return <Spinner />;
   }
 
   if (status === "error") {

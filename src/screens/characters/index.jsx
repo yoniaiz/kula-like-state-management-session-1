@@ -1,4 +1,6 @@
+import Loader from "react-loader-spinner";
 import { CharacterCard, CharactersFilters } from "../../components";
+import Spinner from "../../components/Spinner";
 import { useFilters, useFetchCharacters } from "../../hooks";
 import styles from "./characters.module.css";
 
@@ -7,7 +9,7 @@ const Characters = () => {
   const { filteredCharacters, onFiltersApply } = useFilters(characters);
 
   if (status === "idle" || status === "loading") {
-    return <h3>pending</h3>;
+    return <Spinner />;
   }
 
   if (status === "success" && characters.length) {
