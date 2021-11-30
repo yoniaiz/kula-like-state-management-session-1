@@ -66,7 +66,7 @@ const Character = () => {
           <h3>Episodes</h3>
           <div className={styles.episodes}>
             {character.episode.map((episode, i) => (
-              <div>
+              <div key={episode}>
                 <a href={episode}>Episode {i + 1}</a>
               </div>
             ))}
