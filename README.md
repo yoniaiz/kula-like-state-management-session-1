@@ -1,4 +1,4 @@
-_Welcome to learning state management with kula like_
+## _Welcome to learning state management with kula like_
 
 **MAIN SITE**
 https://rick-morty-state.netlify.app/
