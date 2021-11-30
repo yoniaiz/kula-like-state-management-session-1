@@ -1,4 +1,4 @@
-import { CharacterCard, CharactersFilters } from "../../components";
+import { CharacterCard } from "../../components";
 import Spinner from "../../components/Spinner";
 import { useFetchCharacters } from "../../hooks";
 import styles from "./characters.module.css";
