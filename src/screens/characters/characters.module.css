@@ -1,0 +1,14 @@
+.charactersScreenContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.charactersContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: auto;
+  width: 80%;
+  gap: 20px;
+  margin: 32px auto 24px auto;
+}
