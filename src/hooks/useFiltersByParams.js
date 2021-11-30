@@ -1,0 +1,47 @@
+import { useSearchParams } from "react-router-dom";
+
+export const useFiltersByParams = (characters) => {
+  const [filtersState] = useSearchParams();
+
+  const gender = "";
+  const name = "";
+  const species = "";
+  const status = "";
+
+  let filteredCharacters = characters;
+  if ((gender || name || species || status) && characters.length) {
+    filteredCharacters = characters.filter((character) => {
+      if (name && !character.name.toLowerCase().includes(name.toLowerCase())) {
+        return false;
+      }
+
+      if (
+        gender &&
+        gender !== "none" &&
+        character.gender.toLowerCase() !== gender
+      ) {
+        return false;
+      }
+
+      if (
+        species &&
+        species !== "none" &&
+        character.species.toLowerCase() !== species
+      ) {
+        return false;
+      }
+
+      if (
+        status &&
+        status !== "none" &&
+        character.status.toLowerCase() !== status
+      ) {
+        return false;
+      }
+
+      return true;
+    });
+  }
+
+  return { filteredCharacters };
+};

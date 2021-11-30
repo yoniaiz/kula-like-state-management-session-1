@@ -1,0 +1,69 @@
+.filtersContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  max-width: 950px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.filtersContainer label {
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+.filtersContainer div {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.filtersContainer input,
+select {
+  border-radius: 8px;
+  padding: 4px 4px;
+  width: 200px;
+  border: 0.5px solid var(--text-color);
+}
+
+.buttonsContainer {
+  display: flex;
+  margin: 16px auto;
+  justify-content: space-between;
+  width: 170px;
+}
+
+.buttonsContainer button {
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+/* CSS */
+.buttonsContainer button .buttonsContainer button:hover,
+.buttonsContainer button:focus {
+  background-color: var(--light-green);
+}
