@@ -1,8 +1,11 @@
 import { useState } from "react";
 
 export const useFilters = (characters) => {
-  const filtersState = {};
-  const onFiltersApply = () => {};
+  const [filtersState, setFiltersState] = useState(null);
+
+  const onFiltersApply = (state) => {
+    setFiltersState(state);
+  };
 
   let filteredCharacters = characters;
 

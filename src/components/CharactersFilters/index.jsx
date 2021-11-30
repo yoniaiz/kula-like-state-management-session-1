@@ -7,9 +7,24 @@ const initialState = {
   species: "none",
   status: "none",
 };
-const reducer = (state, action) => {
-  return state;
-};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "name":
+      return { ...state, name: action.payload };
+    case "gender":
+      return { ...state, gender: action.payload };
+    case "species":
+      return { ...state, species: action.payload };
+    case "status":
+      return { ...state, status: action.payload };
+    case "reset":
+      return initialState;
+
+    default:
+      return state;
+  }
+}
 
 const CharactersFilters = ({ onFiltersApply }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
