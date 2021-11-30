@@ -12,16 +12,24 @@ const CharacterContextProvider = ({ children }) => {
   const [characters, setCharacters] = useState([]);
 
   const updateStatus = (newStatus) => {
-    // update the status
+    setStatus(newStatus);
   };
 
-  const updateCharacters = (newCharacters) => {
-    // update characters array with new characters
+  const updateCharacters = (characters) => {
+    setCharacters(characters);
   };
 
   const updateCharacter = (character) => {
     if (characters.length) {
-      // update the array character
+      setCharacters((prev) =>
+        prev.map((prevCharacter) => {
+          if (prevCharacter.id === characters.id) {
+            return character;
+          }
+
+          return prevCharacter;
+        })
+      );
     } else {
       setStatus("success");
       setCharacters([character]);

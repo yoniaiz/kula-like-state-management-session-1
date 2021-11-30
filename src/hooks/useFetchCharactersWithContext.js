@@ -3,23 +3,19 @@ import axios from "axios";
 import { useCharacterContext } from "../context/CharactersContext";
 
 export const useFetchCharactersContext = () => {
-  // change state to update CharactersContext characters instead
-  const [status, setStatus] = useState("idle");
-  const [characters, setCharacters] = useState([]);
-
+  const { updateCharacters, updateStatus } = useCharacterContext();
   useEffect(() => {
     const fetchCharacters = async () => {
-      setStatus("loading");
+      updateStatus("loading");
 
       try {
         const { data } = await axios.get(
           "https://rickandmortyapi.com/api/character"
         );
-
-        setStatus("success");
-        setCharacters(data.results);
+        updateStatus("success");
+        updateCharacters(data.results);
       } catch (e) {
-        setStatus("error");
+        updateStatus("error");
       }
     };
 

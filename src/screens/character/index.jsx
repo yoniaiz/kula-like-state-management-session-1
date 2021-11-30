@@ -8,6 +8,9 @@ const Character = () => {
   const { id } = useParams();
   useFetchCharacterByIdContext(id);
 
+  const { status, getCharacterById } = useCharacterContext();
+  const character = getCharacterById(id);
+
   if (status === "loading" || status === "idle" || !character) {
     return <Spinner />;
   }
@@ -67,7 +70,7 @@ const Character = () => {
           <h3>Episodes</h3>
           <div className={styles.episodes}>
             {character.episode.map((episode, i) => (
-              <div>
+              <div key={episode}>
                 <a href={episode}>Episode {i + 1}</a>
               </div>
             ))}

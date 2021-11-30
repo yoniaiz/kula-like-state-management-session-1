@@ -8,13 +8,14 @@ function App() {
   return (
     <div className="App">
       <h1>Rick and Morty - State management</h1>
-      {/* Wrap components with context provider */}
-      <BrowserRouter>
-        <Routes>
-          <Route path="/character/:id" element={<Character />} />
-          <Route path="*" element={<Characters />} />
-        </Routes>
-      </BrowserRouter>
+      <CharacterContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/character/:id" element={<Character />} />
+            <Route path="*" element={<Characters />} />
+          </Routes>
+        </BrowserRouter>
+      </CharacterContextProvider>
     </div>
   );
 }

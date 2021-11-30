@@ -6,7 +6,7 @@ import styles from "./characters.module.css";
 
 const Characters = () => {
   useFetchCharactersContext();
-  // get status and characters from CharactersContext
+  const { status, characters } = useCharacterContext();
   const { filteredCharacters } = useFiltersByParams(characters);
 
   if (status === "idle" || status === "loading") {
