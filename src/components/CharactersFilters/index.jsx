@@ -7,34 +7,14 @@ const initialState = {
   species: "none",
   status: "none",
 };
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "name":
-      return { ...state, name: action.payload };
-    case "gender":
-      return { ...state, gender: action.payload };
-    case "species":
-      return { ...state, species: action.payload };
-    case "status":
-      return { ...state, status: action.payload };
-    case "reset":
-      return initialState;
-
-    default:
-      return state;
-  }
-}
+const reducer = (state, action) => {
+  return state;
+};
 
 const CharactersFilters = ({ onFiltersApply }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    dispatch({ type: "name", payload: value });
-  };
-
-  const handleSelectChange = (e) => {
+  const handleChange = (e) => {
     dispatch({ type: e.target.name, payload: e.target.value });
   };
 
@@ -51,22 +31,22 @@ const CharactersFilters = ({ onFiltersApply }) => {
     <div>
       <div className={styled.filtersContainer}>
         <div>
-          <label for="name">Search by name</label>
+          <label htmlFor="name">Search by name</label>
           <input
             name="name"
             id="name"
             placeholder="Rick Sanchez"
-            onChange={handleInputChange}
+            onChange={handleChange}
             value={state.name}
           />
         </div>
         <div>
-          <label for="gender">Filter by gender</label>
+          <label htmlFor="gender">Filter by gender</label>
           <select
             name="gender"
             id="gender"
             value={state.gender}
-            onChange={handleSelectChange}
+            onChange={handleChange}
           >
             <option value="none">None</option>
             <option value="female">Female</option>
@@ -76,12 +56,12 @@ const CharactersFilters = ({ onFiltersApply }) => {
         </div>
 
         <div>
-          <label for="species">Filter by species</label>
+          <label htmlFor="species">Filter by species</label>
           <select
             name="species"
             id="species"
             value={state.species}
-            onChange={handleSelectChange}
+            onChange={handleChange}
           >
             <option value="none">None</option>
             <option value="human">Human</option>
@@ -90,12 +70,12 @@ const CharactersFilters = ({ onFiltersApply }) => {
         </div>
 
         <div>
-          <label for="status">Filter by status</label>
+          <label htmlFor="status">Filter by status</label>
           <select
             name="status"
             id="status"
             value={state.status}
-            onChange={handleSelectChange}
+            onChange={handleChange}
           >
             <option value="none">None</option>
             <option value="alive">Alive</option>

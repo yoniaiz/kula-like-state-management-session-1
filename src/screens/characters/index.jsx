@@ -1,10 +1,11 @@
-import { CharacterCard } from "../../components";
+import { CharacterCard, CharactersFilters } from "../../components";
 import Spinner from "../../components/Spinner";
-import { useFetchCharacters } from "../../hooks";
+import { useFilters, useFetchCharacters } from "../../hooks";
 import styles from "./characters.module.css";
 
 const Characters = () => {
   const { characters, status } = useFetchCharacters();
+  const { filteredCharacters, onFiltersApply } = useFilters(characters);
 
   if (status === "idle" || status === "loading") {
     return <Spinner />;
@@ -13,10 +14,15 @@ const Characters = () => {
   if (status === "success" && characters.length) {
     return (
       <div className={styles.charactersScreenContainer}>
+        <CharactersFilters onFiltersApply={onFiltersApply} />
         <div className={styles.charactersContainer}>
-          {characters.map((character) => (
-            <CharacterCard key={character.id} {...character} />
-          ))}
+          {filteredCharacters.length ? (
+            filteredCharacters.map((character) => (
+              <CharacterCard key={character.id} {...character} />
+            ))
+          ) : (
+            <h2>No results</h2>
+          )}
         </div>
       </div>
     );

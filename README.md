@@ -1,24 +1,22 @@
 Hi! welcome to the first state management session!
 
-first exercise - show all Rick and Morty characters.
+second exercise - Filters characters by their properties.
 
 in characters folder (path - src/screens/characters/index.js)
-we try to fetch all characters inside the useFetchCharacters custom hook
+you can find useFilters custom hook and CharactersFilters component
 
-please go into the useFetchCharacters and handle the characters + status state and return it back from the hook
-so we could see the components in the screen
+we have two steps for this exercise
 
-the hook already fetches the characters in the useEffect hook
-the characters should be const data.results
+1. In the CharactersFilters we should handle a local state
+   recommended to use the use reducer hook (optional).
 
-DoD
+   we should handle the state update in handleChange function
+   in onReset function we should reset the state
+   in handleApply function we should call the onFiltersApply function
+   that we will pass as a prop to the component
 
-1. create a state for characters (initially should be an empty array)
-2. create a state for status - status will have four possible state -
+2. In the useFilters hook we should create a state for the current selected filters
+   and update it in the onFiltersApply
 
-- idle - the initial state of the status
-- loading - when we try to fetch the characters
-- success - when we successfully fetched the characters and updated the characters state
-- error - when we got error from the api
-
-after updating the state correctly we should see the characters!
+after wiring up the hook and the component we should see the result and
+be able to filter them
