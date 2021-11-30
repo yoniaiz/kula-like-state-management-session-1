@@ -4,10 +4,10 @@ import styled from "./filters.module.css";
 const CharactersFiltersQueryParams = () => {
   const [filterState, setFiltersState] = useSearchParams();
 
-  const gender = "";
-  const name = "";
-  const species = "";
-  const status = "";
+  const gender = filterState.get("gender");
+  const name = filterState.get("name");
+  const species = filterState.get("species");
+  const status = filterState.get("status");
 
   const handleInputChange = (e) => {
     const params = {};
@@ -26,6 +26,11 @@ const CharactersFiltersQueryParams = () => {
     if (name) {
       params["name"] = name;
     }
+
+    setFiltersState(
+      { ...params, [e.target.name]: e.target.value },
+      { replace: true }
+    );
   };
 
   return (
